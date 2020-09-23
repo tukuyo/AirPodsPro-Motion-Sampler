@@ -43,35 +43,40 @@ class SK3DViewController: UIViewController {
     func NodeRotate() {
         guard APP.isDeviceMotionActive else { return }
         let data = APP.deviceMotion!.attitude
-        print(data)
-        y.append((180 / Double.pi) * data.pitch)
-        x.append((180 / Double.pi) * data.roll)
-        z.append((180 / Double.pi) * data.yaw)
         
-        var paramX = 0.0
-        var paramY = 0.0
-        var paramZ = 0.0
         
-        // fillter
-        if x.count == 5 {
-            var xTmp = x
-            xTmp.sort()
-            paramX = xTmp[4] * 0.1
-            
-            var yTmp = y
-            yTmp.sort()
-            paramY = yTmp[4] * 0.1
-            
-            var zTmp = z
-            zTmp.sort()
-            paramZ = zTmp[4] * 0.1
-            
-            x.removeFirst()
-            y.removeFirst()
-            z.removeFirst()
-        }
+        cubeNode.eulerAngles = SCNVector3(-data.pitch, -data.yaw, -data.roll)
         
-        cubeNode.eulerAngles = SCNVector3(-paramY, -paramZ, -paramX)
+        
+        // radian -> degrees
+//        y.append((180 / Double.pi) * data.pitch)
+//        x.append((180 / Double.pi) * data.roll)
+//        z.append((180 / Double.pi) * data.yaw)
+//
+//        var paramX = 0.0
+//        var paramY = 0.0
+//        var paramZ = 0.0
+//
+//        // fillter
+//        if x.count == 5 {
+//            var xTmp = x
+//            xTmp.sort()
+//            paramX = xTmp[4] * 0.1
+//
+//            var yTmp = y
+//            yTmp.sort()
+//            paramY = yTmp[4] * 0.1
+//
+//            var zTmp = z
+//            zTmp.sort()
+//            paramZ = zTmp[4] * 0.1
+//
+//            x.removeFirst()
+//            y.removeFirst()
+//            z.removeFirst()
+//        }
+//
+//        cubeNode.eulerAngles = SCNVector3(-paramY, -paramZ, -paramX)
     }
     
     //SceneKit SetUp
