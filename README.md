@@ -1,13 +1,19 @@
-# AirPods Pro Motion Sample
+# AirPodsPro-Motion-Sampler
 
-AirPods Pro のモーションセンサの値を取得するサンプルプロジェクト
+Code Examples of CMHeadphoneMotionManager in CoreMotion.
 
-## Requirements 必要事項
- - Xcode: 12.0
- - iOS  : 14
- - 機材
+## Requirements 
+ - Xcode: 12.0+
+ - iOS  : 14.0+
  - iPhone, iPad
  - AirPods Pro
+ 
+ ## Contents
+ 
+ |  Infomation obtained |  Rotate the Cube  |
+ | ---- | ---- |
+ |   ![](README_resources/info.gif) |  ![](README_resources/move.gif)  | 
+ 
   
 ## Reference
  - [Apple Developer Documentation](https://developer.apple.com/documentation/coremotion/cmheadphonemotionmanager)

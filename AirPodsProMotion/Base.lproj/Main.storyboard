@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YkN-bq-hKb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -17,12 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yEa-h5-K8j">
-                                <rect key="frame" x="77" y="215" width="260" height="466"/>
+                                <rect key="frame" x="42" y="139" width="330" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="KER-Yn-2Ef"/>
-                                    <constraint firstAttribute="height" constant="466" id="cfa-Jw-fY2"/>
-                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -31,17 +27,44 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yEa-h5-K8j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDo-7o-3GV"/>
-                            <constraint firstItem="yEa-h5-K8j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kSA-zp-ZNR"/>
+                            <constraint firstItem="yEa-h5-K8j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="22T-54-4Mq"/>
+                            <constraint firstItem="yEa-h5-K8j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PY5-6h-gxg"/>
+                            <constraint firstItem="yEa-h5-K8j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="QVA-Ps-qEK"/>
+                            <constraint firstItem="yEa-h5-K8j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="Z8u-L4-wM6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="66c-hX-y6R">
+                        <barButtonItem key="rightBarButtonItem" title="3D" id="dlj-w2-L4v">
+                            <connections>
+                                <action selector="DView:" destination="BYZ-38-t0r" id="FsJ-7L-F4c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="textView" destination="yEa-h5-K8j" id="0Ga-Ae-jSV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+            <point key="canvasLocation" x="1989.8550724637682" y="-494.19642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IEV-XY-oRz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YkN-bq-hKb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pau-2g-ANj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xBb-9k-1i4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gt3-3h-8io" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.7101449275362" y="-494.19642857142856"/>
         </scene>
     </scenes>
     <resources>

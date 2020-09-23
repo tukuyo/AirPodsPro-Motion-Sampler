@@ -13,6 +13,7 @@
 		8E4A85E0251A37600077CDAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A85DE251A37600077CDAC /* Main.storyboard */; };
 		8E4A85E2251A37610077CDAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A85E1251A37610077CDAC /* Assets.xcassets */; };
 		8E4A85E5251A37610077CDAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A85E3251A37610077CDAC /* LaunchScreen.storyboard */; };
+		8EF9EA05251B690C00D239C4 /* SK3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9EA04251B690C00D239C4 /* SK3DViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8E4A85E1251A37610077CDAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E4A85E4251A37610077CDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E4A85E6251A37610077CDAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF9EA04251B690C00D239C4 /* SK3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SK3DViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				8E4A85D8251A37600077CDAC /* AppDelegate.swift */,
 				8E4A85DA251A37600077CDAC /* SceneDelegate.swift */,
 				8E4A85DC251A37600077CDAC /* ViewController.swift */,
+				8EF9EA04251B690C00D239C4 /* SK3DViewController.swift */,
 				8E4A85DE251A37600077CDAC /* Main.storyboard */,
 				8E4A85E1251A37610077CDAC /* Assets.xcassets */,
 				8E4A85E3251A37610077CDAC /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				8E4A85DD251A37600077CDAC /* ViewController.swift in Sources */,
 				8E4A85D9251A37600077CDAC /* AppDelegate.swift in Sources */,
 				8E4A85DB251A37600077CDAC /* SceneDelegate.swift in Sources */,
+				8EF9EA05251B690C00D239C4 /* SK3DViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
