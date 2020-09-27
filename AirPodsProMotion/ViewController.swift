@@ -11,9 +11,9 @@ import CoreMotion
 class ViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
+    
     //AirPods Pro => APP :)
     let APP = CMHeadphoneMotionManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,26 +49,26 @@ class ViewController: UIViewController {
                 y: \(data.attitude.quaternion.y)
                 z: \(data.attitude.quaternion.z)
                 w: \(data.attitude.quaternion.w)
-            姿勢:
+            Attitude:
                 pitch: \(data.attitude.pitch)
                 roll: \(data.attitude.roll)
                 yaw: \(data.attitude.yaw)
-            重力加速度:
+            Gravitational Acceleration:
                 x: \(data.gravity.x)
                 y: \(data.gravity.y)
                 z: \(data.gravity.z)
-            角速度:
+            Rotation Rate:
                 x: \(data.rotationRate.x)
                 y: \(data.rotationRate.y)
                 z: \(data.rotationRate.z)
-            加速度:
+            Acceleration:
                 x: \(data.userAcceleration.x)
                 y: \(data.userAcceleration.y)
                 z: \(data.userAcceleration.z)
-            磁気フィールド:
+            Magnetic Field:
                 field: \(data.magneticField.field)
                 accuracy: \(data.magneticField.accuracy)
-            方位角:
+            Heading:
                 \(data.heading)
             """
     }

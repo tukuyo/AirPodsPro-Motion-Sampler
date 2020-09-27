@@ -15,7 +15,8 @@ class SK3DViewController: UIViewController {
     let APP = CMHeadphoneMotionManager()
     // cube
     var cubeNode: SCNNode!
-    //
+    
+    // Filter variables (not used in this case)
     var x: Array<Double> = Array<Double>()
     var y: Array<Double> = Array<Double>()
     var z: Array<Double> = Array<Double>()
@@ -40,6 +41,7 @@ class SK3DViewController: UIViewController {
         APP.stopDeviceMotionUpdates()
     }
     
+    
     func NodeRotate() {
         guard APP.isDeviceMotionActive else { return }
         let data = APP.deviceMotion!.attitude
@@ -57,7 +59,7 @@ class SK3DViewController: UIViewController {
 //        var paramY = 0.0
 //        var paramZ = 0.0
 //
-//        // fillter
+//        // filter
 //        if x.count == 5 {
 //            var xTmp = x
 //            xTmp.sort()
@@ -83,21 +85,21 @@ class SK3DViewController: UIViewController {
     func SceneSetUp() {
         let scnView = SCNView(frame: self.view.frame)
         scnView.backgroundColor = UIColor.black
-        scnView.allowsCameraControl = true // ユーザーによる視点操作
-        scnView.showsStatistics = true // 描画パフォーマンス情報
+        scnView.allowsCameraControl = false
+        scnView.showsStatistics = true
         view.addSubview(scnView)
 
-        // SCNScene を SCNView に設定する
+        // Set SCNScene to SCNView
         let scene = SCNScene()
         scnView.scene = scene
 
-        // カメラをシーンに追加する
+        // Adding a camera to a scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
         scene.rootNode.addChildNode(cameraNode)
 
-        // 無指向性の光源をシーンに追加する
+        // Adding an omnidirectional light source to the scene
         let omniLight = SCNLight()
         omniLight.type = .omni
         let omniLightNode = SCNNode()
@@ -105,7 +107,7 @@ class SK3DViewController: UIViewController {
         omniLightNode.position = SCNVector3(x: 0, y: 10, z: 10)
         scene.rootNode.addChildNode(omniLightNode)
 
-        // あらゆる方向から照らす光源をシーンに追加する
+        // Adding a light source to your scene that illuminates from all directions.
         let ambientLight = SCNLight()
         ambientLight.type = .ambient
         ambientLight.color = UIColor.darkGray
@@ -114,7 +116,7 @@ class SK3DViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
 
     
-        // 球体をシーンに追加する
+        // Adding a cube to a scene
         let cube:SCNGeometry = SCNBox(width: 3, height: 3, length: 3, chamferRadius: 0.5)
         cubeNode = SCNNode(geometry: cube)
         cubeNode.position = SCNVector3(x: 0, y: 0, z: 0)
