@@ -10,7 +10,7 @@ Code Examples of CMHeadphoneMotionManager in CoreMotion.
  
  ## Contents
  
- |  Infomation obtained |  Rotate the Cube  |
+ |  Infomation obtained |  Rotate the Cube(Face)  |
  | ---- | ---- |
  |   ![](README_resources/info.gif) |  ![](README_resources/move.gif)  | 
  

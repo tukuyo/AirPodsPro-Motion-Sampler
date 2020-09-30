@@ -8,7 +8,7 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
 
     @IBOutlet var textView: UITextView!
     
@@ -20,10 +20,12 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .systemBackground
         
+        APP.delegate = self
+        
         guard APP.isDeviceMotionAvailable else { return }
-        APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] _,error  in
-            guard error == nil else { return }
-            self?.printData()
+        APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] motion, error  in
+            guard let motion = motion, error == nil else { return }
+            self?.printData(motion)
         })
     }
     
@@ -32,17 +34,8 @@ class ViewController: UIViewController {
         viewDidLoad()
     }
     
-    func printData() {
-        guard APP.isDeviceMotionActive else { return }
-        let data = APP.deviceMotion!
-//        print(data)
-//        print(data.attitude)            // 姿勢 pitch, roll, yaw
-//        print(data.gravity)             // 重力加速度
-//        print(data.rotationRate)        // 角速度
-//        print(data.userAcceleration)    // 加速度
-//        print(data.magneticField)       // 磁気フィールド　磁気ベクトルを返す
-//        print(data.heading)             // 方位角
-        
+    func printData(_ data: CMDeviceMotion) {
+
         self.textView.text = """
             Quaternion:
                 x: \(data.attitude.quaternion.x)
@@ -73,7 +66,7 @@ class ViewController: UIViewController {
             """
     }
 
-    @IBAction func DView(_ sender: Any) {
+    @IBAction func nextView(_ sender: Any) {
         APP.stopDeviceMotionUpdates()
         
         self.navigationController?.pushViewController(SK3DViewController(), animated: true)

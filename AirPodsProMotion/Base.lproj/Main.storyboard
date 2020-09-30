@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" id="66c-hX-y6R">
                         <barButtonItem key="rightBarButtonItem" title="3D" id="dlj-w2-L4v">
                             <connections>
-                                <action selector="DView:" destination="BYZ-38-t0r" id="FsJ-7L-F4c"/>
+                                <action selector="nextView:" destination="BYZ-38-t0r" id="sVv-Db-5Dn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
