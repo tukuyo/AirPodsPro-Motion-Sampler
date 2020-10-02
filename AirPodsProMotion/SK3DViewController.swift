@@ -16,16 +16,11 @@ class SK3DViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
     // cube
     var cubeNode: SCNNode!
     
-    // Filter variables (not used in this case)
-    var x: Array<Double> = Array<Double>()
-    var y: Array<Double> = Array<Double>()
-    var z: Array<Double> = Array<Double>()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .systemBackground
-        self.navigationController?.title = "Simple 3D View"
+        self.title = "Simple 3D View"
         
         APP.delegate = self
 
@@ -38,6 +33,10 @@ class SK3DViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidLoad()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         APP.stopDeviceMotionUpdates()
@@ -46,43 +45,15 @@ class SK3DViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
     
     func NodeRotate(_ motion: CMDeviceMotion) {
         let data = motion.attitude
-        
-        
+
         cubeNode.eulerAngles = SCNVector3(-data.pitch, -data.yaw, -data.roll)
-        
-        
-        // radian -> degrees
-        // y.append((180 / Double.pi) * data.pitch)
-        // x.append((180 / Double.pi) * data.roll)
-        // z.append((180 / Double.pi) * data.yaw)
-        //
-        // var paramX = 0.0
-        // var paramY = 0.0
-        //  var paramZ = 0.0
-        //
-        // filter
-        // if x.count == 5 {
-        // var xTmp = x
-        // xTmp.sort()
-        // paramX = xTmp[4] * 0.1
-        //
-        // var yTmp = y
-        // yTmp.sort()
-        // paramY = yTmp[4] * 0.1
-        //
-        // var zTmp = z
-        // zTmp.sort()
-        // paramZ = zTmp[4] * 0.1
-        //
-        // x.removeFirst()
-        // y.removeFirst()
-        // z.removeFirst()
-        // }
-        //
-        // cubeNode.eulerAngles = SCNVector3(-paramY, -paramZ, -paramX)
     }
+}
+
+
+// SceneKit
+extension SK3DViewController {
     
-    //SceneKit SetUp
     func SceneSetUp() {
         let scnView = SCNView(frame: self.view.frame)
         scnView.backgroundColor = UIColor.black
@@ -142,5 +113,4 @@ class SK3DViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
         cubeNode.position = SCNVector3(x: 0, y: 0, z: 0)
         scene.rootNode.addChildNode(cubeNode)
     }
-    
 }

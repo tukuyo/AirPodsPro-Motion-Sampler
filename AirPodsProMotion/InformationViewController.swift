@@ -8,17 +8,31 @@
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
+class InformationViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
 
-    @IBOutlet var textView: UITextView!
+    lazy var textView: UITextView = {
+        let view = UITextView()
+        view.frame = CGRect(x: self.view.bounds.minX + (self.view.bounds.width / 10),
+                            y: self.view.bounds.minY + (self.view.bounds.height / 6),
+                            width: self.view.bounds.width, height: self.view.bounds.height)
+        view.text = "Looking for AirPods Pro"
+        view.font = view.font?.withSize(14)
+        view.isEditable = false
+        return view
+    }()
+    
+    
     
     //AirPods Pro => APP :)
     let APP = CMHeadphoneMotionManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Information View"
+        view.backgroundColor = .systemBackground
+        view.addSubview(textView)
         
-        self.view.backgroundColor = .systemBackground
         
         APP.delegate = self
         
@@ -30,12 +44,16 @@ class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewDidLoad()
+        self.viewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        APP.stopDeviceMotionUpdates()
+    }
+    
+    
     func printData(_ data: CMDeviceMotion) {
-
+        print(data)
         self.textView.text = """
             Quaternion:
                 x: \(data.attitude.quaternion.x)
@@ -64,11 +82,5 @@ class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
             Heading:
                 \(data.heading)
             """
-    }
-
-    @IBAction func nextView(_ sender: Any) {
-        APP.stopDeviceMotionUpdates()
-        
-        self.navigationController?.pushViewController(SK3DViewController(), animated: true)
     }
 }
