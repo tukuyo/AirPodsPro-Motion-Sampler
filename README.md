@@ -14,9 +14,10 @@ Open ```AirPodsProMotion.xcodeproj``` on Xcode12 or later, then connect your iPh
  
 ## Contents
  
- |  <center> Infomation View </center> |  <center>Rotate the Cube <br> By Head Motion </center> | <center>Table scrolling <br> By Head Motion </center>|
- | ---- | ---- | ---- |
- |  <center> ![](README_resources/info.gif)　</center> | <center> ![](README_resources/move.gif) 　</center> | <center>　![](README_resources/table.gif)　</center> |
+ |  <center> Infomation View </center> |  <center>Rotate the Cube <br> By Head Motion </center> | <center>Table scrolling <br> By Head Motion </center> | <center> Export motion data to CSV </center>|  
+ | ---- | ---- | ---- | ---- |  
+ |  <center> ![](README_resources/info.gif)　</center> | <center> ![](README_resources/move.gif) 　</center> | <center>　![](README_resources/table.gif)　</center> | <center>　![](README_resources/export.gif)　</center> |  
+
 
 
 
@@ -29,6 +30,10 @@ The cube rotates in sync with the orientation of the face.
 - Tabel scrolling By Head Motion  
 Move the face up and down to scroll the TableView.  
 We don't use any hands at all.
+
+- Export motion data to CSV  
+Export the motion data acquired from AirpodsPro as a CSV file.  
+You can check the data by using a ```file App```.
 
   
 ## Reference
