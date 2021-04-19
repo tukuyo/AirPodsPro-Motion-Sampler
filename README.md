@@ -6,7 +6,9 @@ Code Examples of CMHeadphoneMotionManager in CoreMotion.
  - Xcode: 12.0+
  - iOS  : 14.0+
  - iPhone, iPad
- - AirPods Pro
+ - AirPods Pro / AirPods Max(*)
+
+<small>*: The necessary sensors are included, so it should work.</small>
 
 ## How To Build
 Open ```AirPodsProMotion.xcodeproj``` on Xcode12 or later, then connect your iPhone or iPad to build it.  
