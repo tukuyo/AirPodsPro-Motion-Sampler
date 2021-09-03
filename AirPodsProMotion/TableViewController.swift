@@ -35,7 +35,10 @@ class TableViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
         
         tableSetUp()
         
-        guard APP.isDeviceMotionAvailable else { return }
+        guard APP.isDeviceMotionAvailable else {
+            self.Alert("Sorry", "Your device is not supported.")
+            return
+        }
         APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] motion, error in
             guard let motion = motion, error == nil else { return }
             self?.motionJudge(motion)

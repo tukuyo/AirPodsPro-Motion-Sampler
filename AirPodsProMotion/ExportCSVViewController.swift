@@ -29,7 +29,7 @@ class ExportCSVViewController: UIViewController, CMHeadphoneMotionManagerDelegat
         let view = UITextView()
         view.frame = CGRect(x: self.view.bounds.minX + (self.view.bounds.width / 10),
                             y: self.view.bounds.minY + (self.view.bounds.height / 6),
-                            width: self.view.bounds.width, height: self.view.bounds.height - 300)
+                            width: self.view.bounds.width * 0.8, height: self.view.bounds.height - 300)
         view.text = "Press the start button below to start recording."
         view.font = view.font?.withSize(14)
         view.isEditable = false
@@ -67,7 +67,10 @@ class ExportCSVViewController: UIViewController, CMHeadphoneMotionManagerDelegat
     }
     
     func start() {
-        guard APP.isDeviceMotionAvailable else { return }
+        guard APP.isDeviceMotionAvailable else {
+            self.Alert("Sorry", "Your device is not supported.")
+            return
+        }
         APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] motion, error  in
             guard let motion = motion, error == nil else { return }
                 self?.writer.write(motion)
