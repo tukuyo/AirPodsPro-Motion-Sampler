@@ -36,7 +36,8 @@ We don't use any hands at all.
 
 - Export motion data to CSV  
 Export the motion data acquired from AirpodsPro as a CSV file.  
-You can check the data by using a ```file App```.
+You can check the data by using a ```file App```.  
+For more information, a CSV file is stored in the 'Files App > On My iPhone > AirPodsPro' directory.
 
   
 ## Reference

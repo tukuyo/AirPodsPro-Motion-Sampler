@@ -35,7 +35,6 @@ class CSVWriter {
                     AccelerationX,AccelerationY,AccelerationZ,\
                     RotationX,RotationY,RotationZ\n
                     """
-        print(header)
         file!.write(header.data(using: .utf8)!)
     }
     
@@ -50,7 +49,6 @@ class CSVWriter {
                 """
         text = text.trimmingCharacters(in: .newlines) + "\n"
         file.write(text.data(using: .utf8)!)
-        print("write")
     }
     
     func close() {
