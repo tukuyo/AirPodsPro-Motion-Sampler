@@ -37,7 +37,7 @@ class InformationViewController: UIViewController, CMHeadphoneMotionManagerDeleg
         APP.delegate = self
         
         guard APP.isDeviceMotionAvailable else {
-            self.Alert("Sorry", "Your device is not supported.")
+            AlertView.alert(self, "Sorry", "Your device is not supported.")
             textView.text = "Sorry, Your device is not supported."
             return
         }

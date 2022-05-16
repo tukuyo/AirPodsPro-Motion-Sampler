@@ -67,10 +67,6 @@ class ExportCSVViewController: UIViewController, CMHeadphoneMotionManagerDelegat
     }
     
     func start() {
-        guard APP.isDeviceMotionAvailable else {
-            self.Alert("Sorry", "Your device is not supported.")
-            return
-        }
         APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] motion, error  in
             guard let motion = motion, error == nil else { return }
                 self?.writer.write(motion)
@@ -78,29 +74,34 @@ class ExportCSVViewController: UIViewController, CMHeadphoneMotionManagerDelegat
         })
     }
     
+    func stop() { APP.stopDeviceMotionUpdates() }
+    
     @objc func Tap() {
         if write {
             write.toggle()
             writer.close()
-            APP.stopDeviceMotionUpdates()
+            stop()
             button.setTitle("Start", for: .normal)
+            AlertView.action(self, handler: {[weak self](_) in self?.viewCreatedFiles()}, animated: true)
         } else {
+            guard APP.isDeviceMotionAvailable else {
+                AlertView.alert(self, "Sorry", "Your device is not supported.")
+                return
+            }
             write.toggle()
             button.setTitle("Stop", for: .normal)
             let dir = FileManager.default.urls(
               for: .documentDirectory,
               in: .userDomainMask
             ).first!
-            
+
             let now = Date()
             let filename = f.string(from: now) + "_motion.csv"
-            
             let fileUrl = dir.appendingPathComponent(filename)
             writer.open(fileUrl)
             start()
         }
     }
-    
     
     func printData(_ data: CMDeviceMotion) {
         self.textView.text = """
@@ -126,5 +127,17 @@ class ExportCSVViewController: UIViewController, CMHeadphoneMotionManagerDelegat
                 y: \(data.userAcceleration.y)
                 z: \(data.userAcceleration.z)
             """
+    }
+    
+    func viewCreatedFiles()
+    {
+        guard let dir = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask).first,
+              let components = NSURLComponents(url: dir, resolvingAgainstBaseURL: true) else { return }
+        components.scheme = "shareddocuments"
+        if let sharedDocuments = components.url {
+            UIApplication.shared.open(sharedDocuments, options: [:])
+        } else {
+            AlertView.warning(self)
+        }
     }
 }

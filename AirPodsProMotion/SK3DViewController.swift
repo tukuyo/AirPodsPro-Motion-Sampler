@@ -27,7 +27,7 @@ class SK3DViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
         SceneSetUp()
         
         guard APP.isDeviceMotionAvailable else {
-            self.Alert("Sorry", "Your device is not supported.")
+            AlertView.alert(self, "Sorry", "Your device is not supported.")
             return
         }
         APP.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: {[weak self] motion, error  in
