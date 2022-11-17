@@ -6,7 +6,7 @@ Code Examples of CMHeadphoneMotionManager in CoreMotion.
  - Xcode: 12.0+
  - iOS  : 14.0+
  - iPhone, iPad (*1)
- - AirPods Pro / AirPods Max / AirPods(3rd generation) or Beats Fit Pro
+ - AirPods Pro(1st or 2nd generation) / AirPods Max / AirPods(3rd generation) or Beats Fit Pro
 
 <small>*1: iPod Touch (7th generation) is not supported.</small>  
 <small>*2: The necessary sensors are included, so it should work.</small>
@@ -46,5 +46,5 @@ For more information, a CSV file is stored in the 'Files App > On My iPhone > Ai
 
 ## Author
  Yoshio Tsukuda  
- - [HP](https://www.tukuyo.net/)
+ - [HP](https://tukuyo.net/)
  - [Twitter](https://twitter.com/tukutuku_tukuyo)
