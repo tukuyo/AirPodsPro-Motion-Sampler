@@ -29,7 +29,7 @@ class CSVWriter {
     
     func header(){
         let header = """
-                    QuaternionX,QuaternionY,QuaternionZ,QuaternionW,\
+                    Timestamp,QuaternionX,QuaternionY,QuaternionZ,QuaternionW,\
                     AttitudePitch,AttitudeRoll,AttitudeYaw,\
                     GravitationalAccelerationX,GravitationalAccelerationY,GravitationalAccelerationZ,\
                     AccelerationX,AccelerationY,AccelerationZ,\
@@ -40,8 +40,10 @@ class CSVWriter {
     
     func write(_ motion: CMDeviceMotion) {
         guard let file = self.file else { return }
+        let currentDate = Date()
+        let unixTimestamp = currentDate.timeIntervalSince1970
         var text = """
-                \(motion.attitude.quaternion.x),\(motion.attitude.quaternion.y),\(motion.attitude.quaternion.z),\(motion.attitude.quaternion.w),\
+                \(unixTimestamp),\(motion.attitude.quaternion.x),\(motion.attitude.quaternion.y),\(motion.attitude.quaternion.z),\(motion.attitude.quaternion.w),\
                 \(motion.attitude.pitch),\(motion.attitude.roll),\(motion.attitude.yaw),\
                 \(motion.gravity.x),\(motion.gravity.y),\(motion.gravity.z),\
                 \(motion.userAcceleration.x),\(motion.userAcceleration.y),\(motion.userAcceleration.z),\
